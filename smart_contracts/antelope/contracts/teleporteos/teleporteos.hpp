@@ -6,8 +6,8 @@
 using namespace eosio;
 using namespace std;
 
-#define ORACLE_CONFIRMATIONS 5
-#define TOKEN_CONTRACT_STR "alien.worlds"
+#define ORACLE_CONFIRMATIONS 3
+#define TOKEN_CONTRACT_STR "bluxbluxblux"
 #define TOKEN_CONTRACT name(TOKEN_CONTRACT_STR)
 
 namespace alienworlds {

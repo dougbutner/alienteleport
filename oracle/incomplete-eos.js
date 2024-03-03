@@ -54,7 +54,7 @@ const run = async () => {
 
     for (let i = 0; i < incomplete.length; i++){
         try {
-            const url = `${hyperion_endpoint}/v2/history/get_actions?account=${incomplete[i].account}&filter=other.worlds:teleport&count=100`;
+            const url = `${hyperion_endpoint}/v2/history/get_actions?account=${incomplete[i].account}&filter=blux.bsc.cxc:teleport&count=100`;
             const res = await fetch(url);
             const json = await res.json();
             // console.log(json.actions[0])

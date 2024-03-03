@@ -9,10 +9,10 @@ teleporteos::teleporteos(name s, name code, datastream<const char *> ds)
       _teleports(get_self(), get_self().value),
       _cancels(get_self(), get_self().value) {}
 
-/* Notifications for tlm transfer */
+/* Notifications for BLUX transfer */
 void teleporteos::transfer(name from, name to, asset quantity, string memo) {
   if (to == get_self()) {
-    check(quantity.amount >= 100'0000, "Transfer is below minimum of 100 TLM");
+    check(quantity.amount >= 1000, "Transfer is below minimum of 1000 BLUX");
 
     auto deposit = _deposits.find(from.value);
     if (deposit == _deposits.end()) {
@@ -53,7 +53,7 @@ void teleporteos::teleport(name from, asset quantity, uint8_t chain_id,
   require_auth(from);
 
   check(quantity.is_valid(), "Amount is not valid");
-  check(quantity.amount >= 100'0000, "Transfer is below minimum of 100 TLM");
+  check(quantity.amount >= 1000, "Transfer is below minimum of 1000 BLUX");
 
   auto deposit = _deposits.find(from.value);
   check(deposit != _deposits.end(),
@@ -83,7 +83,7 @@ void teleporteos::refundrec(uint64_t id, checksum256 eth_address) {
                 1, // Expect all oracles execpt for hte last one to succeed in
                    // signing. The last one will be missing because the inline
                    // transfer will fail causing the whole sign action to fail
-        "Not enough confirmations to refund. Required: 4");
+        "Not enough confirmations to refund. Required: 3");
   _receipts.modify(*existing_receipt, get_self(),
                    [&](auto &r) { r.completed = true; });
 
@@ -168,7 +168,7 @@ void teleporteos::sign(name oracle_name, uint64_t id, string signature) {
   });
 }
 
-// Receiving TLM from BSC/ETH
+// Receiving BLUX from BSC/ETH
 void teleporteos::received(name oracle_name, name to, checksum256 ref,
                            asset quantity, uint8_t chain_id, bool confirmed) {
   require_oracle(oracle_name);

@@ -46,7 +46,7 @@ Successfully registered oracles can then call the received function on each cont
 ---
 ## Inner technical details
 `oracle-eos.js` - script that processes teleport actions from EOSIO chain to EVM chains.
-    This script registers to listen for actions on the WAX blockchain. Specifically it is handling the `logteleport` action in the `other.worlds` contract on WAX which has the `teleporteos.cpp` contract installed.
+    This script registers to listen for actions on the WAX blockchain. Specifically it is handling the `logteleport` action in the `blux.bsc.cxc` contract on WAX which has the `teleporteos.cpp` contract installed.
     When this action is encountered the data is queued for processing.
     Processing involves the oracle taking the data from the `logteleport` action, signing it with their eth private key and then sending the signature to the `teleporteos.cpp` contract with the `sign` action where it is stored with the teleport record, ready for claiming on the EVM side.
 

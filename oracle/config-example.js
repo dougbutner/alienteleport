@@ -7,8 +7,8 @@ module.exports = {
         chainId: "f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12", // Fixed wot be the Wax chainId
         wsEndpoint: 'ws://<shipnode-endpoint>', // Should be changed to suit the oracle
         endpoint: 'https://eosio.api.endpoint', // Should be changed to suit the oracle
-        teleportContract: 'other.worlds',
-        oracleAccount: '', // oracle Wax account that will used by the oracle to call sign and received actions on other.worlds
+        teleportContract: 'blux.bsc.cxc',
+        oracleAccount: '', // oracle Wax account that will used by the oracle to call sign and received actions on blux.bsc.cxc
         privateKey: '5C234dc...' // Should be changed to suit the oracle to be key for the oracleAccount
     },
     eth: {

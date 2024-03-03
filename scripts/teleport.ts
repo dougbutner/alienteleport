@@ -18,8 +18,8 @@ export class Teleport {
 
     async getSignData(teleportId) {
         const res = await this.rpc.get_table_rows({
-            code: 'other.worlds',
-            scope: 'other.worlds',
+            code: 'blux.bsc.cxc',
+            scope: 'blux.bsc.cxc',
             table: 'teleports',
             lower_bound: teleportId,
             upper_bound: teleportId,

@@ -5,3 +5,4 @@ eosio.token.ts
 .vscode
 smart_contracts/antelope/artifacts
 smart_contracts/antelope/node_modules
+.DS_store
